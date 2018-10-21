@@ -28,7 +28,7 @@ Start a new keycloak container using the created network.
 ```javascript
 docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d --name keycloak --net keycloak-network jboss/keycloak
 ```
-Because we called our db `mysql` keycloak detects it by default and uses it. If not, it would use its own H2 DB.
+Because we called our db `mysql` keycloak detects it by default and uses it. If not, it would use its own H2 DB. More info about [Keycloak docker image](https://hub.docker.com/r/jboss/keycloak/)
 
 ### Test you Keycloak server
 Go to localhost:8080 to see the keycloak welcome page. Access the admin console with the credentials used to create the keycloak container (**admin** : **admin** in the example above).
