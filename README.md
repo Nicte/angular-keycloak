@@ -1,27 +1,27 @@
 # AngularKeycloak
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+Angular 7 example project to explore the usage of keycloak as an authentication and authorization service.
 
-## Development server
+## Pre-requisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Have a keycloak instance running and update your configuration on the init function inside `keycloak.service.ts`.
 
-## Code scaffolding
+Alternatively setup a new Keycloak server using Docker:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Create a Keycloak server using docker
 
-## Build
+### Create a network
+docker network create keycloak-network
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### tart a mysql in the new network (Optional: you could skip this step and use the embeded H2 DB by default)
+docker run --name mysql -d --net keycloak-network -e MYSQL_DATABASE=keycloak -e MYSQL_USER=keycloak -e MYSQL_PASSWORD=password -e MYSQL_ROOT_PASSWORD=root_password mysql
 
-## Running unit tests
+### Start keycloak using the network and the mysql db
+docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d --name keycloak --net keycloak-network jboss/keycloak
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Test you Keycloak server
+Go to localhost:8080 to see the keycloak welcome page.
 
-## Running end-to-end tests
+Access with the credentials used to create the keycloak container (admin, admin in the example above).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Add a new realm by hovering over the top left where it says "Master" and click the "Add Realm" button. Import the keycloak.json realm to get up and running faster. This will create 2 test roles ("user" and "admin") and will also create a test user (named "user" which has the "user" role but not the "admin" role).
