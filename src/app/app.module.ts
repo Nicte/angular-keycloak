@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { KeycloakService } from './keycloak.service';
 import { ReadComponent } from './read/read.component';
 import { WriteComponent } from './write/write.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function kcFactory(keycloakService: KeycloakService) {
   return () => keycloakService.init();
@@ -20,7 +21,8 @@ export function kcFactory(keycloakService: KeycloakService) {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
