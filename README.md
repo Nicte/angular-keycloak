@@ -36,7 +36,7 @@ Go to localhost:8080 to see the keycloak welcome page. Access the admin console 
 ### Configuring your server
 Add a new realm by hovering over the top left where it says "Master" and click the "Add Realm" button. Create the necessary roles and users. Create a new Client and update the clientId inside `keycloak.service.ts`.
 
-Alternatively, import the `keycloak.json` realm to get up and running faster. This will create 2 test roles ("user" and "admin") and will also create a test user (named "user" which has the "user" role but not the "admin" role). A Client with clientId `js-console` will also be created to match the configuration.
+Alternatively, import the `realm-export.json` realm to get up and running faster. This will create 2 test roles ("TestRead" and "TestWrite") and will also create a test user (named "test" which has both roles assigned). A Client with clientId `my-app` will also be created to match the configuration.
 
 ## TODO
 * Add couple components and routing.

@@ -16,7 +16,7 @@ export class KeycloakService {
       const config = {
         'url': 'http://localhost:8080/auth',
         'realm': 'example',
-        'clientId': 'js-console'
+        'clientId': 'my-app'
       };
       this.keycloakAuth = new Keycloak(config);
       this.keycloakAuth.init({ onLoad: 'login-required' })
