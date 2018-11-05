@@ -8,6 +8,7 @@ import { KeycloakService } from './keycloak.service';
 import { ReadComponent } from './read/read.component';
 import { WriteComponent } from './write/write.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
 
 export function kcFactory(keycloakService: KeycloakService) {
   return () => keycloakService.init();
@@ -22,7 +23,10 @@ export function kcFactory(keycloakService: KeycloakService) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     {
