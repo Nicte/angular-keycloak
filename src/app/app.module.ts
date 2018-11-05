@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { KeycloakService } from './keycloak.service';
+import { ReadComponent } from './read/read.component';
+import { WriteComponent } from './write/write.component';
 
 export function kcFactory(keycloakService: KeycloakService) {
   return () => keycloakService.init();
@@ -12,7 +14,9 @@ export function kcFactory(keycloakService: KeycloakService) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReadComponent,
+    WriteComponent
   ],
   imports: [
     BrowserModule,
