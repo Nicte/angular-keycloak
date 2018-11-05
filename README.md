@@ -39,5 +39,4 @@ Add a new realm by hovering over the top left where it says "Master" and click t
 Alternatively, import the `realm-export.json` realm to get up and running faster. This will create 2 test roles ("TestRead" and "TestWrite") and will also create a test user (named "test" which has both roles assigned). A Client with clientId `my-app` will also be created to match the configuration.
 
 ## TODO
-* Add couple components and routing.
 * Create an authguard to only allow access to components to logged-in users and users having the necessary roles.
